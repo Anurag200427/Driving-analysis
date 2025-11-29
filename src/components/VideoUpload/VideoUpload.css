@@ -1,0 +1,236 @@
+.video-upload-section {
+  background-color: var(--light-gray);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.upload-area {
+  border: 3px dashed var(--accent);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.upload-area:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.file-types {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.preview-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.video-preview {
+  background: var(--secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.preview-video {
+  width: 100%;
+  display: block;
+  max-height: 60vh;
+  object-fit: contain;
+  background: #000;
+}
+
+.video-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--secondary);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.retake-btn,
+.analyze-btn {
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.retake-btn {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.retake-btn:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.analyze-btn {
+  background: var(--primary);
+  color: var(--secondary);
+  border: 2px solid var(--primary);
+}
+
+.analyze-btn:hover:not(:disabled) {
+  background: transparent;
+  color: var(--primary);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.analysis-results {
+  background: var(--secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--light-gray);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recommendations {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #fff8f8;
+  border-radius: 8px;
+  border-left: 4px solid #ff4d4f;
+}
+
+.recommendations h4 {
+  margin-bottom: 1rem;
+  color: #ff4d4f;
+}
+
+.recommendations ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.recommendations li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #d4380d;
+}
+
+.recommendations li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #ff4d4f;
+}
+
+.analysis-meta {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .video-upload-section {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .video-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .retake-btn,
+  .analyze-btn {
+    width: 100%;
+  }
+}
